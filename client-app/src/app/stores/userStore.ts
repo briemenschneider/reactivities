@@ -1,7 +1,7 @@
 import { UserFormValues, User } from './../models/user';
 import { makeAutoObservable, runInAction } from 'mobx';
 import agent from '../api/agent';
-import { store } from './store';
+import { resetStore, store } from './store';
 import { history } from '../..';
 
 export default class UserStore {
@@ -28,9 +28,9 @@ export default class UserStore {
     }
 
     logout = () => {
-        store.commonStore.setToken(null);
-        window.localStorage.removeItem('jwt');
+        resetStore();
         this.user = null;
+        window.localStorage.removeItem('jwt');
         history.push('/');
     }
 
@@ -57,5 +57,9 @@ export default class UserStore {
 
     setImage = (image: string) =>  {
         if (this.user) this.user.image = image;
+    }
+
+    setDisplayName = (name: string) => {
+        if (this.user) this.user.displayName = name;
     }
 }

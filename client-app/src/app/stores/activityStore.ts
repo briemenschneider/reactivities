@@ -176,4 +176,12 @@ export default class ActivityStore {
             runInAction(() => this.loading = false);
         }
     }
+
+    resetStore = () => {
+        this.activityRegistry = new Map<string, Activity>();
+        this.selectedActivity = undefined;
+        this.editMode = false;
+        this.loading = false;
+        this.loadingInitial = false;
+    }
 }

@@ -32,4 +32,9 @@ export default class CommonStore {
     setAppLoaded = () => {
         this.appLoaded = true;
     }
+
+    resetStore = () => {
+        this.error = null;
+        this.setToken(null);
+    }
 }

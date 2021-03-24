@@ -23,6 +23,12 @@ export const store: Store = {
 
 export const StoreContext = createContext(store);
 
+export function resetStore() {
+    store.activityStore.resetStore();
+    store.commonStore.resetStore();
+    store.profileStore.resetStore();
+}
+
 export function useStore() {
     return useContext(StoreContext);
 }
