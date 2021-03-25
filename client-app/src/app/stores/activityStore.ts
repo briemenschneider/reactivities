@@ -177,6 +177,10 @@ export default class ActivityStore {
         }
     }
 
+    clearSelectedActivity = () => {
+        this.selectedActivity = undefined;
+    }
+
     resetStore = () => {
         this.activityRegistry = new Map<string, Activity>();
         this.selectedActivity = undefined;
