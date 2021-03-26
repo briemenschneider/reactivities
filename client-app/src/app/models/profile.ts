@@ -18,9 +18,15 @@ export class Profile implements Profile {
         this.image = user.image;
     }
 }
-
 export interface Photo {
     id: string;
     url: string;
     isMain: boolean;
+}
+
+export interface UserActivity {
+    id: string;
+    title: string;
+    category: string;
+    date: Date;
 }
